@@ -32,13 +32,11 @@ export class AddcustomerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.id = this.act.snapshot.paramMap.get('id') as number;
     this.act.params.subscribe((params) => {
       if (params['id']) {
         this.isedit = true;
         this.id = +params['id'];
         this.title = 'Edit Customer';
-        // this.customerform.controls['id'].disable();
         this.service.GetbyId(this.id).subscribe((item) => {
           this.editdata = item;
           this.customerform.setValue({
@@ -70,11 +68,6 @@ export class AddcustomerComponent implements OnInit {
   });
 
   Savecustomer() {
-    console.log('Customer save form method reached');
-    console.log('Form valid:', this.customerform.valid);
-    console.log('Form values:', this.customerform.value);
-    console.log('Form errors:', this.customerform.errors);
-
     Object.keys(this.customerform.controls).forEach((key) => {
       const control = this.customerform.get(key);
       console.log(`${key} valid:`, control?.valid);
@@ -86,7 +79,6 @@ export class AddcustomerComponent implements OnInit {
       let startDate: Date | null = null;
 
       if (startDateValue) {
-        // Convert the string to a Date object
         startDate = new Date(startDateValue);
       }
       console.log(startDate);
@@ -123,13 +115,6 @@ export class AddcustomerComponent implements OnInit {
           console.log(item);
           this.toastr.success('Updated successfully', 'Success');
           this.router.navigateByUrl('/customer');
-          // this._response = item;
-          // if (this._response.result === 'pass') {
-          //   this.toastr.success('Updated successfully', 'Success');
-          //   this.router.navigateByUrl('/customer');
-          // } else {
-          //   this.toastr.error('Due to:' + this._response.message, 'Failed');
-          // }
         });
       }
     }

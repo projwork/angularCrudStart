@@ -40,22 +40,15 @@ export class CustomerComponent implements OnInit {
     private datePipe: DatePipe
   ) {}
 
-  // _custform = this.builder.group({
-  //   companyName: this.builder.control('', Validators.required),
-  // });
-
   ngOnInit(): void {
     this.Loadcustomer();
   }
 
   Loadcustomer() {
     this.service.Getall().subscribe((item) => {
-      // this.customerlist = item;
       this.customerlist = item.map((customer) => ({
         ...customer,
-        // startDate: this.datePipe.transform(customer.startDate, 'yyyy-MM-dd')  // Transform the date
-        // startDateDisplay: this.datePipe.transform(customer.startDate, 'yyyy-MM-dd') || ''
-        startDate: customer.startDate.toString(), // Convert Date to string
+        startDate: customer.startDate.toString(),
         startDateDisplay:
           this.datePipe.transform(customer.startDate, 'yyyy-MM-dd') || '',
       }));
