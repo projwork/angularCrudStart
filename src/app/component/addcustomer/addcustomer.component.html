@@ -1,0 +1,68 @@
+<form [formGroup]="customerform" (ngSubmit)="Savecustomer()">
+  <mat-card>
+    <mat-card-header>
+      <h1>{{ title }}</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>Company Name</mat-label>
+        <input formControlName="companyName" matInput />
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>Company Name Local</mat-label>
+        <input formControlName="companyNameLocal" matInput />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Company Name Amharic</mat-label>
+        <input formControlName="companyNameAmharic" matInput />
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>Enterprise Type</mat-label>
+        <input formControlName="enterpriseType" matInput />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Trade Name</mat-label>
+        <input formControlName="tradeName" matInput />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Trade Name Local</mat-label>
+        <input formControlName="tradeNameLocal" matInput />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Trade Name Amharic</mat-label>
+        <input formControlName="tradeNameAmharic" matInput />
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Choose a Start Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="startDate" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="mat-50">
+        <mat-label>Preferred Language</mat-label>
+        <input formControlName="preferredLanguage" matInput />
+      </mat-form-field>
+      <!-- <div class="div-50">
+        <mat-checkbox formControlName="status">Is Active</mat-checkbox>
+      </div> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="div-50">
+        <button type="submit" mat-raised-button color="primary">Save</button>
+      </div>
+      <div class="div-50">
+        <a routerLink="/customer" mat-raised-button color="accent">Cancel</a>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>
