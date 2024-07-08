@@ -29,7 +29,9 @@
 
       <ng-container matColumnDef="startDate">
         <th mat-header-cell *matHeaderCellDef>Start Date</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.startDate }}</td>
+        <td mat-cell *matCellDef="let customer">
+          {{ customer.startDate | date }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="preferredLanguage">

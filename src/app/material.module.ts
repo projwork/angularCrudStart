@@ -15,7 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 @NgModule({
   exports: [
@@ -35,6 +35,7 @@ import { DatePipe } from '@angular/common';
     MatSidenavModule,
     MatListModule,
     MatDatepickerModule,
+    CommonModule,
   ],
   providers: [DatePipe],
 })
